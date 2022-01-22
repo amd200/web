@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <a href="#" class="logo"
+          ><img
+            src="https://ben-coderr.github.io/images/logo_black.png"
+            height="50px"
+            alt=""
+        /></a>
+        <ul class="nav-desktop">
+          <li>
+            <a href="#"><span>Home</span></a>
+          </li>
+          <li>
+            <a href="#"><span>About</span></a>
+          </li>
+          <li>
+            <a href="#"><span>Skills</span></a>
+          </li>
+          <li>
+            <a href="#"><span>Works</span></a>
+          </li>
+          <li>
+            <a href="#"><span>Contact</span></a>
+          </li>
+        </ul>
+        <div class="btns menu-toggle">
+          <ion-icon name="menu-outline"></ion-icon>
+          <ion-icon name="close-outline"></ion-icon>
+        </div>
+      </div>
+    </header>
+    <ul class="nav-mobile nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Skills</a></li>
+      <li><a href="#">Works</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+    <script>
+      var daynight = document.querySelector(".day-night");
+      var menu = document.querySelector(".menu-toggle");
+      var nav = document.querySelector(".nav");
+
+   
+
+      menu.onclick = function () {
+        menu.classList.toggle("active");
+        nav.classList.toggle("active");
+      };
+    </script>
+  </body>
+</html>
