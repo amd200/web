@@ -1,78 +1,117 @@
+$mainColor: #21243d;
+$logoColor: #000;
+$fontSize_List: 19px;
+$hoverList: violet;
 * {
   box-sizing: border-box;
-  font-family: sans-serif; }
+  font-family: sans-serif;
+}
 
+%center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 a {
-  text-decoration: none; }
-
+  text-decoration: none;
+}
 ul {
   list-style: none;
   margin: 0;
-  padding: 0; }
-
+  padding: 0;
+}
 .container {
   padding-left: 15px;
   padding-right: 15px;
   margin-left: auto;
-  margin-right: auto; }
-
+  margin-right: auto;
+}
 @media (min-width: 768px) {
   .container {
-    width: 750px; } }
+    width: 750px;
+  }
+}
+
 @media (min-width: 992px) {
   .container {
-    width: 970px; } }
+    width: 970px;
+  }
+}
+
 @media (min-width: 1200px) {
   .container {
-    width: 1170px; } }
-body {
+    width: 1170px;
+  }
+}
+
+%styleBody {
   height: 100vh;
-  width: 100%; }
+  width: 100%;
+}
+
+body {
+  @extend %styleBody;
+  // background: linear-gradient(to right, #3494e6, #ec6ead);
+}
 
 header {
   position: relative;
   background-color: #fff;
   padding: 5px 0;
-  z-index: 3; }
-  header .container {
+  z-index: 3;
+  .container {
     display: flex;
     align-items: center;
-    justify-content: space-between; }
-  header .logo {
+    justify-content: space-between;
+  }
+  .logo {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 72px;
-    color: #000;
-    font-size: 35px; }
-  header ul {
-    display: flex; }
-    header ul li a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 20px;
-      color: #21243d;
-      font-size: 20px;
-      font-weight: bold;
-      height: 72px; }
-      header ul li a span {
-        position: relative; }
-        header ul li a span::after {
-          content: "";
-          position: absolute;
-          width: 0;
-          background-color: violet;
-          height: 4px;
-          left: 50%;
-          bottom: -7px;
-          transition: 0.5s;
-          transform: translateX(-50%); }
-        header ul li a span:hover::after {
-          width: 100%; }
-  header ion-icon {
-    font-size: 1.5em; }
+    color: $logoColor;
+    font-size: 35px;
+  }
 
+  ul {
+    display: flex;
+
+    li {
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px;
+        color: $mainColor;
+        font-size: 20px;
+        font-weight: bold;
+        height: 72px;
+        span {
+          position: relative;
+
+          &::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            background-color: $hoverList;
+            height: 4px;
+            left: 50%;
+            bottom: -7px;
+            transition: 0.5s;
+            transform: translateX(-50%);
+          }
+          &:hover::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  ion-icon {
+    font-size: 1.5em;
+  }
+}
 .nav-mobile {
   position: absolute;
   top: 0;
@@ -85,40 +124,91 @@ header {
   transition: 0.5s;
   width: 100%;
   height: 100%;
-  background-color: #fff; }
-  .nav-mobile li a {
-    display: block;
-    margin: 5px 0;
-    transition: 0.5s;
-    font-size: 1.25em;
-    color: #21243d;
-    padding: 5px 20px; }
-    .nav-mobile li a:hover {
-      background-color: violet;
-      color: #fff;
+  background-color: #fff;
+  li {
+    a {
+      display: block;
+      margin: 5px 0;
       transition: 0.5s;
-      border-radius: 10px; }
 
-.nav.active {
-  left: 0; }
-
-.btns ion-icon:nth-child(2) {
-  display: none; }
+      font-size: 1.25em;
+      color: $mainColor;
+      padding: 5px 20px;
+      &:hover {
+        background-color: $hoverList;
+        color: #fff;
+        transition: 0.5s;
+        border-radius: 10px;
+      }
+    }
+  }
+  .nav.active {
+    left: 0;
+  }
+}
 
 .btns.active ion-icon:nth-child(2) {
-  display: block; }
-
+  display: block;
+}
 .btns.active ion-icon:nth-child(1) {
-  display: none; }
-
+  display: none;
+}
 .none {
-  display: none; }
+  display: none;
+}
 
 @media (max-width: 765px) {
   .nav-desktop {
-    display: none; } }
+    display: none;
+  }
+}
 @media (min-width: 765px) {
   .btns {
-    display: none; } }
+    display: none;
+  }
+}
 
-/*# sourceMappingURL=style.css.map */
+// strat landing
+
+.landing {
+  position: relative;
+  z-index: 1;
+  .container {
+    min-height: calc(100vh - 72px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .text{
+      padding-bottom: 100px;
+      color: $mainColor;
+      flex-basis: 30%;
+      color: $mainColor;
+      h1{
+        font-size: 44px;
+        font-weight: bold;
+      }
+      p{
+        font-size: 18px;
+      }
+    }
+    .image{
+      img{
+        width:460px;
+        height: fit-content;
+      }
+    }
+  }
+}
+@media(max-width:765px){
+  .landing{
+    .container{
+      flex-direction: column-reverse;
+      .text{
+        text-align: center;
+        h1{
+          font-size: 35px;
+        }
+      }
+    }
+  }
+}
